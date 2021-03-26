@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServletMessage.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Mr-JD2-78-21</a> &gt; <a href="index.source.html" class="el_package">by.it_academy.jd2.web.servlets.home</a> &gt; <span class="el_source">ServletMessage.java</span></div><h1>ServletMessage.java</h1><pre class="source lang-java linenums">package by.it_academy.jd2.web.servlets.home;
+
+import by.it_academy.jd2.core.dto.vui.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
+import java.io.IOException;
+import java.util.Set;
+
+@WebServlet(name = &quot;Message&quot;, urlPatterns = &quot;/message&quot;)
+<span class="nc" id="L15">public class ServletMessage extends HttpServlet {</span>
+    @Override
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+<span class="nc" id="L18">        Set&lt;String&gt; set = DataStorageUsers.getUsersLogin();</span>
+<span class="nc" id="L19">        req.setAttribute(&quot;setUsers&quot;,set);             //список логинов всех пользователей</span>
+<span class="nc" id="L20">        getServletContext().getRequestDispatcher(&quot;/indexMessage.jsp&quot;).forward(req, resp);</span>
+<span class="nc" id="L21">    }</span>
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+<span class="nc" id="L25">        HttpSession session = req.getSession();</span>
+<span class="nc" id="L26">        User userSender=(User) session.getAttribute(Constants.USER_SENDER);</span>
+
+<span class="nc" id="L28">        String userReceiverLogin = req.getParameter(Constants.USER_RECEIVER);</span>
+<span class="nc" id="L29">        User userReceiver = DataStorageUsers.searchUserLogin(userReceiverLogin );</span>
+<span class="nc" id="L30">        String text = req.getParameter(Constants.MESSAGE);</span>
+<span class="nc" id="L31">        Message message = new Message(userSender, userReceiver, text);</span>
+<span class="nc" id="L32">        DataMessage.saveMessage(message);</span>
+<span class="nc" id="L33">        Set&lt;String&gt; set = DataStorageUsers.getUsersLogin();   //список логинов всех пользователей</span>
+<span class="nc" id="L34">        req.setAttribute(&quot;setUsers&quot;,set);</span>
+<span class="nc" id="L35">        session.setAttribute(&quot;send&quot;,true);      //aгумент отвечающий за дополнительный коментарий &quot;Cобщение отправлено&quot;</span>
+<span class="nc" id="L36">        getServletContext().getRequestDispatcher(&quot;/indexMessage.jsp&quot;).forward(req, resp);</span>
+<span class="nc" id="L37">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

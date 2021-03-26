@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServletSingUp.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Mr-JD2-78-21</a> &gt; <a href="index.source.html" class="el_package">by.it_academy.jd2.web.servlets</a> &gt; <span class="el_source">ServletSingUp.java</span></div><h1>ServletSingUp.java</h1><pre class="source lang-java linenums">package by.it_academy.jd2.web.servlets;
+
+import by.it_academy.jd2.core.dto.User;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+
+@WebServlet(name = &quot;ServletSingUp&quot;,urlPatterns = &quot;/hello&quot;)
+<span class="nc" id="L15">public class ServletSingUp extends HttpServlet {</span>
+<span class="nc" id="L16">    private final String LOGIN = &quot;login&quot;;</span>
+<span class="nc" id="L17">    private final String PASSWORD = &quot;psw&quot;;</span>
+<span class="nc" id="L18">    private final String NAME = &quot;name&quot;;</span>
+<span class="nc" id="L19">    private final String BIRTHDAY = &quot;birthday&quot;;</span>
+    //private final String TYPE_SAVE = &quot;ARRAY_NAME_PARAM&quot;;
+<span class="nc" id="L21">    private final String MESSAGE_EXCEPTION = &quot;parameters are not in cookies and are not entered&quot;;</span>
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+<span class="nc" id="L25">        saveUser(LOGIN,PASSWORD,NAME,BIRTHDAY,req,resp);</span>
+
+
+
+<span class="nc" id="L29">    }</span>
+
+    private void saveUser(String login, String password, String name, String birthday, HttpServletRequest req, HttpServletResponse resp) throws IOException {
+<span class="nc" id="L32">        User user = new User();</span>
+<span class="nc" id="L33">        user.setLogin(req.getParameter(login));</span>
+<span class="nc" id="L34">        user.setPassword(req.getParameter(password));</span>
+<span class="nc" id="L35">        user.setName(req.getParameter(name));</span>
+
+<span class="nc" id="L37">        user.setBirthday(req.getParameter(birthday));</span>
+
+<span class="nc" id="L39">        resp.setContentType(&quot;text/html&quot;);</span>
+<span class="nc" id="L40">        PrintWriter writer = resp.getWriter();</span>
+
+<span class="nc" id="L42">        writer.write(&quot;&lt;p&gt;&lt;span style='color: black;'&gt;Hello, &quot;+user.toString()+&quot;!&lt;/span&gt;&lt;/p&gt;&quot;);</span>
+<span class="nc" id="L43">        writer.write(&quot;&lt;p&gt;&lt;span style='color: black;'&gt;User зарегистрирован!&lt;/span&gt;&lt;/p&gt;&quot;);</span>
+
+
+<span class="nc" id="L46">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
