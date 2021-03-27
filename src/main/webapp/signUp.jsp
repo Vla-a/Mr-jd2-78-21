@@ -18,7 +18,7 @@
 <body>
 
 <form method="post" action="signUp">
-    <h1>Ругестрация</h1>
+    <h1>Регестрация</h1>
 
     ФИО<br>
     <input type="text"  name="name" required><br><br>

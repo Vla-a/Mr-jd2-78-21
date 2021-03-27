@@ -39,22 +39,15 @@
         <welcome-file>start.jsp</welcome-file>
     </welcome-file-list>
 
-<!--    <servlet>-->
-<!--        <servlet-name>Menu</servlet-name>-->
-<!--        <jsp-file>/menu.jsp</jsp-file>-->
-<!--    </servlet>-->
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>Menu</servlet-name>-->
-<!--        <url-pattern>/menu</url-pattern>-->
-<!--    </servlet-mapping>-->
 
 
-<!--    <filter-mapping>-->
-<!--        <filter-name>SecuriryFilter</filter-name>-->
-<!--        <url-pattern>/*</url-pattern>-->
-<!--        <dispatcher>REQUEST</dispatcher>-->
 
-<!--    </filter-mapping>-->
+    <filter-mapping>
+        <filter-name>SecurityFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+
+    </filter-mapping>
 
     <listener>
         <listener-class>by.it_academy.jd2.web.listeners.SessionChangeListener</listener-class>
