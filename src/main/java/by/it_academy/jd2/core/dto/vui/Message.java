@@ -7,16 +7,19 @@ import java.util.Date;
 
 public class Message {
 
+    public  String dateForm = "dd.MM.yyyy hh:mm:ss";
+
     private User sender;
     private User receiver;
     private String date;
     private String message;
+    public  String dateFormat = "dd.MM.yyyy hh:mm:ss";
 
     public Message(User sender, User receiver, String message) {
         this.sender = sender;
         this.receiver = receiver;
         this.message = message;
-        SimpleDateFormat dateTime = new SimpleDateFormat(Constants.FORMAT_DATE);
+        SimpleDateFormat dateTime = new SimpleDateFormat(dateFormat);
         this.date = dateTime.format(new Date());
     }
 
@@ -38,6 +41,7 @@ public class Message {
 
     @Override
     public String toString() {
-        return date+ " От: " + sender.getName() +" Cообщениe: " + message + "\n";
+
+        return "user: " + sender.getName() +";  letter: " + message + "; date: " + date+  "\n";
     }
 }

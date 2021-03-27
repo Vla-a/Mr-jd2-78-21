@@ -5,21 +5,32 @@ import java.util.Set;
 
 public class DataStorageUsers {
 
+    private static Set<User> users;
+
+
+    public static Set<User> usersAll(){
+        if(users==null){
+           users= new HashSet<>();
+        }return users;
+    }
 
     public static void saveUsers(User user){
-        AllUsers.getAllUsers().add(user);
+
+        usersAll().add(user);
     }
 
     public static User searchUserLoginAndPsw(String login,String psw){
-        for (User allUser : AllUsers.getAllUsers()) {
+        for (User allUser : usersAll()) {
             if(allUser.getLogin().equals(login)&&(allUser.getPassword().equals(psw))){
-                return allUser;
+
+                    return allUser;
+
             }
 
         } return null;
     }
     public static User searchUserLogin(String login){
-        for (User allUser : AllUsers.getAllUsers()) {
+        for (User allUser : usersAll()) {
             if(allUser.getLogin().equals(login)){
                 return allUser;
             }
@@ -27,7 +38,7 @@ public class DataStorageUsers {
     }
     public static Set<String> getUsersLogin(){
         HashSet<String> usersLogin = new HashSet<>();
-        for (User user : AllUsers.getAllUsers()) {
+        for (User user : usersAll()) {
             usersLogin.add(user.getLogin());
 
         }

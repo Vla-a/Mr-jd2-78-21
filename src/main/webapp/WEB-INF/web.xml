@@ -30,23 +30,23 @@
 <!--    </servlet-mapping>-->
 
 <!--    <welcome-file-list>-->
-<!--        <welcome-file>index.jsp</welcome-file>-->
+<!--        <welcome-file>start.jsp</welcome-file>-->
 <!--    </welcome-file-list>-->
 
 
 
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>start.jsp</welcome-file>
     </welcome-file-list>
 
-    <servlet>
-        <servlet-name>Menu</servlet-name>
-        <jsp-file>/indexMenu.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Menu</servlet-name>
-        <url-pattern>/menu</url-pattern>
-    </servlet-mapping>
+<!--    <servlet>-->
+<!--        <servlet-name>Menu</servlet-name>-->
+<!--        <jsp-file>/menu.jsp</jsp-file>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>Menu</servlet-name>-->
+<!--        <url-pattern>/menu</url-pattern>-->
+<!--    </servlet-mapping>-->
 
 
 <!--    <filter-mapping>-->
@@ -60,22 +60,22 @@
         <listener-class>by.it_academy.jd2.web.listeners.SessionChangeListener</listener-class>
     </listener>
 
-    <servlet>
-        <servlet-name>ServletSingUp</servlet-name>
-        <jsp-file>/index.jsp</jsp-file>
-    </servlet>
-    <servlet>
-        <servlet-name>ServletSingIn</servlet-name>
-        <jsp-file>/.jsp</jsp-file>
-    </servlet>
+<!--    <servlet>-->
+<!--        <servlet-name>ServletSingUp</servlet-name>-->
+<!--        <jsp-file>/start.jsp</jsp-file>-->
+<!--    </servlet>-->
+<!--    <servlet>-->
+<!--        <servlet-name>ServletSingIn</servlet-name>-->
+<!--        <jsp-file>/.jsp</jsp-file>-->
+<!--    </servlet>-->
 
-    <servlet>
-        <servlet-name>ListServlet</servlet-name>
-        <jsp-file>/singIn.jsp</jsp-file>
-    </servlet>
-    <servlet>
-        <servlet-name>AddServlet</servlet-name>
-        <jsp-file>/add.jsp</jsp-file>
-    </servlet>
+<!--    <servlet>-->
+<!--        <servlet-name>ListServlet</servlet-name>-->
+<!--        <jsp-file>/signinn.jsp</jsp-file>-->
+<!--    </servlet>-->
+<!--    <servlet>-->
+<!--        <servlet-name>AddServlet</servlet-name>-->
+<!--        <jsp-file>/add.jsp</jsp-file>-->
+<!--    </servlet>-->
 
 </web-app>

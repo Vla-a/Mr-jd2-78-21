@@ -19,22 +19,25 @@ public class User {
     }
 
     public String getLogin() {
+
         return login;
     }
 
-    public void setLogin(String login) {
+    public void setLogin(String login)    {
         this.login = login;
     }
 
-    public String getPassword() {
+    public String getPassword()    {
         return password;
     }
 
     public void setPassword(String password) {
+
         this.password = password;
     }
 
     public String getBirthday() {
+
         return birthday;
     }
 
@@ -44,6 +47,6 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format(" %s(имя %s)",getLogin(),getName());
+        return String.format(" %s(user %s)",getLogin(),getName());
     }
 }

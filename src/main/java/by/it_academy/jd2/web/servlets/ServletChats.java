@@ -12,6 +12,6 @@ import java.io.IOException;
 public class ServletChats extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/indexChats.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher("/chats.jsp").forward(req, resp);
     }
 }
