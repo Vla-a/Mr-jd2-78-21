@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CookieServlet1.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Mr-JD2-78-21</a> &gt; <a href="index.source.html" class="el_package">by.it_academy.jd2.web.servlets</a> &gt; <span class="el_source">CookieServlet1.java</span></div><h1>CookieServlet1.java</h1><pre class="source lang-java linenums">package by.it_academy.jd2.web.servlets;
+
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+
+import java.beans.Encoder;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
+
+
+
+@WebServlet(name = &quot;CookieServlet1&quot;, urlPatterns = &quot;/cookie&quot;)
+<span class="nc" id="L25">public class CookieServlet1 extends HttpServlet {</span>
+
+    private static final String FIRST_NAME_PARAM_NAME = &quot;firstName&quot;;
+    private static final String LAST_NAME_PARAM_NAME = &quot;lastName&quot;;
+   private static final String DATE_BORN = &quot;born&quot;;
+    private static final String LOGIN = &quot;login&quot;;
+    private static final String PASSWORD = &quot;password&quot;;
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+
+<span class="nc" id="L37">        String firstNameVal = getValueFromAnywhere(req, FIRST_NAME_PARAM_NAME);</span>
+<span class="nc" id="L38">        saveCookies(resp, FIRST_NAME_PARAM_NAME, firstNameVal);</span>
+
+<span class="nc" id="L40">        String lastNameVal = getValueFromAnywhere(req, LAST_NAME_PARAM_NAME);</span>
+<span class="nc" id="L41">        saveCookies(resp, LAST_NAME_PARAM_NAME, lastNameVal);</span>
+
+<span class="nc" id="L43">        String born = getValueFromAnywhere(req, DATE_BORN);</span>
+<span class="nc" id="L44">        saveCookies(resp, DATE_BORN, lastNameVal);</span>
+
+<span class="nc" id="L46">        String login = getValueFromAnywhere(req, LOGIN);</span>
+<span class="nc" id="L47">        saveCookies(resp, LOGIN, lastNameVal);</span>
+
+<span class="nc" id="L49">        String password = getValueFromAnywhere(req, PASSWORD);</span>
+<span class="nc" id="L50">        saveCookies(resp, PASSWORD, lastNameVal);</span>
+
+<span class="nc" id="L52">        resp.setContentType(&quot;text/html&quot;);</span>
+<span class="nc" id="L53">        PrintWriter writer = resp.getWriter();</span>
+<span class="nc" id="L54">        writer.write(&quot;&lt;p&gt;&lt;span style='color: bleak;'&gt;Hello, &quot; + firstNameVal +&quot; &quot;+ lastNameVal + &quot; &quot; +born + &quot; &quot;+ login + &quot; &quot; +password +&quot;!&lt;/span&gt;&lt;/p&gt;&quot;);</span>
+<span class="nc" id="L55">        resp.sendRedirect(&quot;http://localhost:8080/Mr-JD2-78-21-0.0.0-SNAPSHOT/cook&quot;);</span>
+
+<span class="nc" id="L57">    }</span>
+
+    public static String getValueFromAnywhere(HttpServletRequest req,String key){
+
+<span class="nc" id="L61">        String val=req.getParameter(key);</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">        if(val==null){</span>
+<span class="nc" id="L63">            Cookie[]cookies=req.getCookies();</span>
+
+<span class="nc bnc" id="L65" title="All 2 branches missed.">            if(cookies!=null){</span>
+<span class="nc" id="L66">                val=Arrays.stream(cookies)</span>
+<span class="nc" id="L67">                        .filter(c-&gt;key.equalsIgnoreCase(c.getName()))</span>
+<span class="nc" id="L68">                        .map(Cookie::getValue)</span>
+<span class="nc" id="L69">                        .findFirst()</span>
+<span class="nc" id="L70">                        .orElse(null);</span>
+            }
+        }
+<span class="nc bnc" id="L73" title="All 2 branches missed.">        if(val==null){</span>
+<span class="nc" id="L74">            throw new IllegalArgumentException(&quot;не передано&quot;);</span>
+        }
+<span class="nc" id="L76">        return val;</span>
+    }
+    public static void saveCookies(HttpServletResponse resp,String key,String val){
+
+<span class="nc" id="L80">        Cookie myCookie=new Cookie(key,URLEncoder.encode(val,StandardCharsets.UTF_8));</span>
+
+<span class="nc" id="L82">        myCookie.setMaxAge(Math.toIntExact(TimeUnit.DAYS.toSeconds(1)));</span>
+<span class="nc" id="L83">        resp.addCookie(myCookie);</span>
+
+<span class="nc" id="L85">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
