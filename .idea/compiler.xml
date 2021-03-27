@@ -10,6 +10,9 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="homework" target="11" />
+      <module name="homework1" target="11" />
+      <module name="homeWork1" target="11" />
       <module name="homework2" target="11" />
       <module name="Mr-JD2-78-21" target="11" />
     </bytecodeTargetLevel>

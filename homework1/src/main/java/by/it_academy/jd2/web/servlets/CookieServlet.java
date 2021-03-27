@@ -7,8 +7,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+
+import java.beans.Encoder;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 @WebServlet(name = "CookieServlet", urlPatterns = "/cook")

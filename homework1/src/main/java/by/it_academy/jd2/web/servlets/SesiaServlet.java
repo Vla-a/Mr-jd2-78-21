@@ -2,13 +2,17 @@ package by.it_academy.jd2.web.servlets;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.*;
 
+
+import java.beans.Encoder;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 @WebServlet(name = "SessiaServlet", urlPatterns = "/sessi")
 public class SesiaServlet extends HttpServlet {

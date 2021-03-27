@@ -27,7 +27,7 @@ public class ServletMessage extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        User userSender=(User) session.getAttribute(ServletSignUp.USER_SENDER);
+        User userSender=(User) session.getAttribute(SignUp.USER_SENDER);
 
         String userReceiverLogin = req.getParameter(USER_RECEIVER);
         User userReceiver = DataStorageUsers.searchUserLogin(userReceiverLogin );

@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "SignIn", urlPatterns = "/signIn")
-public class ServletSignIn extends HttpServlet {
+public class SignIn extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -22,12 +22,12 @@ public class ServletSignIn extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String login = req.getParameter(ServletSignUp.LOGIN);
-        String psw = req.getParameter(ServletSignUp.PASSWORD);
+        String login = req.getParameter(SignUp.LOGIN);
+        String psw = req.getParameter(SignUp.PASSWORD);
         User user = DataStorageUsers.searchUserLoginAndPsw(login, psw);
         if (user != null) {
             HttpSession session = req.getSession();
-            session.setAttribute(ServletSignUp.USER_SENDER, user);
+            session.setAttribute(SignUp.USER_SENDER, user);
             String path = req.getContextPath() + "/menu";
             resp.sendRedirect(path);
         } else {
