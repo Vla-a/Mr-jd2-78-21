@@ -1,6 +1,6 @@
 package by.it_academy.jd2.web.servlets;
 
-import by.it_academy.jd2.core.dto.User;
+import by.it_academy.jd2.core.dto.vui.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,7 +17,6 @@ public class ServletSingUp extends HttpServlet {
     private final String PASSWORD = "psw";
     private final String NAME = "name";
     private final String BIRTHDAY = "birthday";
-    //private final String TYPE_SAVE = "ARRAY_NAME_PARAM";
     private final String MESSAGE_EXCEPTION = "parameters are not in cookies and are not entered";
 
     @Override

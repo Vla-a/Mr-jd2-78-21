@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class Message {
 
-    public  String dateForm = "dd.MM.yyyy hh:mm:ss";
+
 
     private User sender;
     private User receiver;
