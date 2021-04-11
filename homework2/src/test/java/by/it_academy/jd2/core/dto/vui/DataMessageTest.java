@@ -40,7 +40,7 @@ class DataMessageTest {
     @Test
     void classDefinition() {
         DataMessage dataMessage = new DataMessage();
-        Assert.assertTrue(dataMessage instanceof DataMessage);
+        assertTrue(dataMessage instanceof DataMessage);
     }
 
     @Test

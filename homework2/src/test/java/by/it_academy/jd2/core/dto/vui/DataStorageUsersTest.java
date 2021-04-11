@@ -37,7 +37,7 @@ class DataStorageUsersTest {
     @Test
     void classDefinition() {
         DataStorageUsers dsu = new DataStorageUsers();
-        Assert.assertTrue(dsu instanceof DataStorageUsers);
+        assertTrue(dsu instanceof DataStorageUsers);
     }
 
     @Test

@@ -70,5 +70,6 @@ class UserTest {
         user.setPassword("111");
         user.setBirthday("25.03.2021 11:06:45");
         assertEquals(" Vov(имя Vladimir)", user.toString());
+
     }
 }

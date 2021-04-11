@@ -36,7 +36,7 @@
 
 
     <welcome-file-list>
-        <welcome-file>start.jsp</welcome-file>
+        <welcome-file>ps.jsp</welcome-file>
     </welcome-file-list>
 
 

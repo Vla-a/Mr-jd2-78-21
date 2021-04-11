@@ -30,12 +30,12 @@ class MessageTest {
     private Message messag = new Message(userSender, userReceiver, "text message");
     @Test
     void getSender() {
-        Assert.assertEquals("Vladimir",messag.getSender());
+       assertEquals("Vladimir",messag.getSender());
     }
 
     @Test
     void getReceiver() {
-        Assert.assertEquals("Vladimir",messag.getReceiver());
+        assertEquals("Vladimir",messag.getReceiver());
     }
 
     @Test
@@ -43,13 +43,13 @@ class MessageTest {
         Message message = new Message(userSender,userReceiver,"text");
         SimpleDateFormat dateTime = new SimpleDateFormat(message.getMessage());
         String date = dateTime.format(new Date());
-        Assert.assertEquals(date, message.getDate());
+        assertEquals(date, message.getDate());
     }
 
     @Test
     void getMessage() {
 
-        Assert.assertEquals("text message", messag.getMessage());
+        assertEquals("text message", messag.getMessage());
     }
 
     @Test
@@ -57,7 +57,7 @@ class MessageTest {
         Message message = new Message(userSender,userReceiver,"text");
         SimpleDateFormat dateTime = new SimpleDateFormat("12.03.2021");
         String date = dateTime.format(new Date());
-        Assert.assertEquals(message.getDate() , message.toString());
+        assertEquals(message.getDate() , message.toString());
 
     }
 }
