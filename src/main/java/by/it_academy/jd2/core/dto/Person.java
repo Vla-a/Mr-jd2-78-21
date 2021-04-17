@@ -1,10 +1,21 @@
 package by.it_academy.jd2.core.dto;
 
-public class Person {
+import javax.persistence.*;
+import java.io.Serializable;
 
+@Entity
+@Table(name = "person_test", schema = "hibernate")
+public class Person implements Serializable {
+
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String lastName;
     private String firstName;
     private int age;
+
 
     public String getLastName() {
 
@@ -32,4 +43,13 @@ public class Person {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 }
+
