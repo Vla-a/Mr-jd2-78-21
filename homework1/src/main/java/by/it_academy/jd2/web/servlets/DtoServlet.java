@@ -45,7 +45,7 @@ public class DtoServlet extends HttpServlet {
             writer.write("<p><span style='color: red;'>Hello, " + person.getLastName() + " " + person.getFirstName()
                     + person.getAge() + "age!<p>");
 
-        } catch (Exception e) {
+        } catch (NullPointerException e) {
 
             PrintWriter writer = resp.getWriter();
             writer.println("No one or two parametrs");
@@ -95,6 +95,6 @@ public class DtoServlet extends HttpServlet {
         }
 
 
-        throw new Exception();
+        throw new IllegalArgumentException("No one or two parametrs");
     }
 }

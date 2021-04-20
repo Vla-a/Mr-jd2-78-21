@@ -55,6 +55,6 @@ public class SesiaServlet extends HttpServlet {
         }
 
 
-        throw new Exception();
+        throw new IllegalArgumentException("No one or two parametrs");
     }
 }

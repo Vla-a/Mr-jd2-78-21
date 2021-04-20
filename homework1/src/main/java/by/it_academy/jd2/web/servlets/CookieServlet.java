@@ -64,6 +64,6 @@ public class CookieServlet extends HttpServlet {
                     }
                 }
             }
-            throw new Exception();
+            throw new IllegalArgumentException("No one or two parametrs");
         }
 }
